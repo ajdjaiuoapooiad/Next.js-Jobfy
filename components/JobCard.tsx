@@ -25,7 +25,17 @@ function JobCard({ job }: { job: JobType }) {
         <CardDescription>{job.company}</CardDescription>
       </CardHeader>
       <Separator />
-      <CardContent>{/* card info */}</CardContent>
+      
+      <CardContent className='mt-4 grid grid-cols-2 gap-4'>
+        <JobInfo icon={<Briefcase />} text={job.mode} />
+        <JobInfo icon={<MapPin />} text={job.location} />
+        <JobInfo icon={<CalendarDays />} text={date} />
+        <Badge className='w-32  justify-center'>
+          <JobInfo icon={<RadioTower className='w-4 h-4' />} text={job.status} />
+        </Badge>
+      </CardContent>
+
+
       <CardFooter className='flex gap-4'>
         <Button asChild size='sm'>
           <Link href={`/jobs/${job.id}`}>edit</Link>
